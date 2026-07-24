@@ -10,4 +10,5 @@ public class ConfigParams {
     public static final String DATAFOLDER = "datafolder";
     public static final String USERDATAFILE = "userDataFile";
     public static final String CARTDATAFILE = "cartDataFile";
+    public static final String HOMEDATAFILE = "homeDataFile";
 }
