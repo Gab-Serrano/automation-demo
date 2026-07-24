@@ -34,7 +34,7 @@ public class HomePage extends BasePage{
         return findAll(inventoryItems);
     }
 
-    public void addItemToCart(){
+    public void addFirstItemToCart(){
         WebElement itemToBuy = getAllInventoryItems().get(0);
 
         WebElement addToCartButton = itemToBuy.findElement(By.cssSelector(".pricebar > .btn"));

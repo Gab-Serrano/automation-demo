@@ -8,4 +8,6 @@ public class ConfigParams {
     public static final String HEADLESS = "headless";
     public static final String INCOGNITO = "incognito";
     public static final String DATAFOLDER = "datafolder";
+    public static final String USERDATAFILE = "userDataFile";
+    public static final String CARTDATAFILE = "cartDataFile";
 }

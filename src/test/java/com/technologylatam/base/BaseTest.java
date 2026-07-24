@@ -1,5 +1,6 @@
 package com.technologylatam.base;
 
+import com.technologylatam.config.ConfigManager;
 import com.technologylatam.driver.DriverFactory;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,8 @@ public abstract class BaseTest {
         driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
+
+        driver.get(ConfigManager.getBaseUrl());
     }
 
     @AfterMethod

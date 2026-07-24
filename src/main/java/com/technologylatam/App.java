@@ -38,7 +38,7 @@ public class App
 
         log.info("Hedaer: {}", homePage.isHeaderVisible());
         log.info("Intenvtory: {}", homePage.areInventoryItemsVisibles());
-        homePage.addItemToCart();
+        homePage.addFirstItemToCart();
         homePage.goToCart();
         log.info("Cart: {}",cartPage.isProductInCart("Sauce Labs Backpack"));
         cartPage.continueWithCheckout();
@@ -55,8 +55,6 @@ public class App
         driver.quit();
 
         */
-
-        System.out.println(JsonReader.read("user-data.json", List.class));
 
     }
 }

@@ -1,0 +1,9 @@
+[
+  {
+    "user": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "item": "Sauce Labs Backpack"
+  }
+]
