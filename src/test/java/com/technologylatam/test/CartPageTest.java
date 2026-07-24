@@ -1,7 +1,7 @@
 package com.technologylatam.test;
 
 import com.technologylatam.base.BaseTest;
-import com.technologylatam.model.CartCheckout;
+import com.technologylatam.model.Cart;
 import com.technologylatam.page.CartPage;
 import com.technologylatam.page.HomePage;
 import com.technologylatam.page.LoginPage;
@@ -16,7 +16,7 @@ public class CartPageTest extends BaseTest {
     @Test(
             dataProvider = "cartData",
             dataProviderClass = DataProviders.class)
-    public void shouldAddItemsToCartTest(CartCheckout cartCheckout){
+    public void shouldAddItemsToCartTest(Cart cartCheckout){
         LoginPage login = new LoginPage(driver);
         HomePage home = new HomePage(driver);
         CartPage cart = new CartPage(driver);

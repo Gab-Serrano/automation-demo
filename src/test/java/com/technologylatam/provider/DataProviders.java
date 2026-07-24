@@ -2,7 +2,8 @@ package com.technologylatam.provider;
 
 import com.technologylatam.config.ConfigManager;
 import com.technologylatam.config.ConfigParams;
-import com.technologylatam.model.CartCheckout;
+import com.technologylatam.model.Cart;
+import com.technologylatam.model.Checkout;
 import com.technologylatam.model.User;
 import com.technologylatam.utils.JsonReader;
 import org.testng.annotations.DataProvider;
@@ -12,6 +13,7 @@ public final class DataProviders {
     private static final String USERDATAFILE = ConfigManager.getProperty(ConfigParams.USERDATAFILE);
     private static final String CARTDATAFILE = ConfigManager.getProperty(ConfigParams.CARTDATAFILE);
     private static final String HOMEDATAFILE = ConfigManager.getProperty(ConfigParams.HOMEDATAFILE);
+    private static final String CHECKOUTDATAFILE = ConfigManager.getProperty(ConfigParams.CHECKOUTDATAFILE);
 
     @DataProvider(name = "userData")
     public static Object[][] userData(){
@@ -30,7 +32,7 @@ public final class DataProviders {
     @DataProvider(name = "cartData")
     public static Object[][] cartData(){
 
-        CartCheckout[] data = JsonReader.read(CARTDATAFILE, CartCheckout[].class);
+        Cart[] data = JsonReader.read(CARTDATAFILE, Cart[].class);
 
         Object[][] result = new Object[data.length][1];
 
@@ -45,6 +47,20 @@ public final class DataProviders {
     public static Object[][] homeData(){
 
         User[] data = JsonReader.read(HOMEDATAFILE, User[].class);
+
+        Object[][] result = new Object[data.length][1];
+
+        for (int i = 0; i < data.length; i++){
+            result[i][0] = data[i];
+        }
+
+        return result;
+    }
+
+    @DataProvider(name = "checkoutData")
+    public static Object[][] checkoutData(){
+
+        Checkout[] data = JsonReader.read(CHECKOUTDATAFILE, Checkout[].class);
 
         Object[][] result = new Object[data.length][1];
 
