@@ -6,18 +6,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public final class ConfigReader {
+public final class ConfigManager {
 
     private static final Properties prop = new Properties();
-    private static final ConfigReader INSTANCE = new ConfigReader();
+    private static final ConfigManager INSTANCE = new ConfigManager();
 
-    private ConfigReader() {
+    private ConfigManager() {
         loadProperties();
     }
 
     private void loadProperties() {
 
-        try (InputStream input = ConfigReader.class
+        try (InputStream input = ConfigManager.class
                 .getClassLoader()
                 .getResourceAsStream("config.properties")) {
 
@@ -32,32 +32,37 @@ public final class ConfigReader {
         }
     }
 
-    public static ConfigReader getInstance() {
+    public static ConfigManager getInstance() {
         return INSTANCE;
     }
 
     public static String getBrowser() {
-        return prop.getProperty(ConfigParams.BROWSER);
+        String browser = ConfigParams.BROWSER;
+        return System.getProperty(browser, prop.getProperty(browser));
     }
 
     public static String getBaseUrl(){
-        return prop.getProperty(ConfigParams.BASE_URL);
+        String baseUrl = ConfigParams.BASE_URL;
+        return System.getProperty(baseUrl, prop.getProperty(baseUrl));
     }
 
     public static String getImplicitWait(){
-        return prop.getProperty(ConfigParams.IMPLICIT_WAIT);
+        String implicitWait = ConfigParams.IMPLICIT_WAIT;
+        return System.getProperty(implicitWait, prop.getProperty(implicitWait));
     }
 
     public static String getExplicitWait(){
-        return prop.getProperty(ConfigParams.EXPLICIT_WAIT);
+        String explicitWait = ConfigParams.EXPLICIT_WAIT;
+        return System.getProperty(explicitWait, prop.getProperty(explicitWait));
     }
 
     public static Boolean isHeadless(){
-        return Boolean.valueOf(prop.getProperty(ConfigParams.HEADLESS));
+        String headless = ConfigParams.HEADLESS;
+        return Boolean.valueOf(System.getProperty(headless, prop.getProperty(headless, "false")));
     }
 
     public static String getProperty(String property){
-        return prop.getProperty(property, null);
+        return System.getProperty(property, prop.getProperty(property, null));
     }
 
 }

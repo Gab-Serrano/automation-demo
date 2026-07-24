@@ -1,6 +1,5 @@
 package com.technologylatam;
 
-import com.technologylatam.config.ConfigReader;
 import com.technologylatam.driver.DriverFactory;
 import org.openqa.selenium.WebDriver;
 
