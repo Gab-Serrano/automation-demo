@@ -3,6 +3,7 @@ package com.technologylatam.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 
@@ -12,6 +13,8 @@ public class HomePage extends BasePage{
     private final By cartContainer = By.id("shopping_cart_container");
     private final By inventoryList = By.cssSelector("#inventory_container > .inventory_list");
     private final By inventoryItems = By.cssSelector("#inventory_container > .inventory_list > .inventory_item");
+    private final By sortContainer = By.className("product_sort_container");
+    private final By inventoryPrices = By.cssSelector("#inventory_container > .inventory_list > .inventory_item .inventory_item_price");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -53,8 +56,45 @@ public class HomePage extends BasePage{
         return false;
     }
 
+    public void sortByPriceHighToLow(){
+
+        Select sort = new Select(find(sortContainer));
+
+        sort.selectByValue("hilo");
+    }
+
     public void goToCart(){
         find(cartContainer).click();
+    }
+
+    private List<WebElement> getAllInventoryPrices(){
+        return findAll(inventoryPrices);
+    }
+
+    private double getFirstItemPrice(){
+
+        String price = getAllInventoryPrices()
+                .get(0)
+                .getText();
+
+        return Double.parseDouble(price.replace("$", ""));
+    }
+
+    private double getLastItemPrice(){
+
+        List<WebElement> prices = getAllInventoryPrices();
+
+        String price = prices
+                .get(prices.size() - 1)
+                .getText();
+
+        return Double.parseDouble(price.replace("$", ""));
+    }
+
+    public boolean areProductsSortedByPriceDesc(){
+
+        return getFirstItemPrice() > getLastItemPrice();
+
     }
 
 }

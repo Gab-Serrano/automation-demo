@@ -1,38 +1,20 @@
 package com.technologylatam;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import com.technologylatam.model.Cart;
+import com.technologylatam.provider.DataProviders;
+import lombok.extern.slf4j.Slf4j;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+@Slf4j
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+    public static void main(String[] args) {
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+
+        for (int i = 0; i < DataProviders.cartData().length; i++){
+            for (int j = 0; j < DataProviders.cartData()[i].length; j++){
+                log.info("Data: {}, {}", ((Cart) DataProviders.cartData()[i][j]).getUser(), ((Cart) DataProviders.cartData()[i][j]).getItem());
+            }
+        }
+
     }
 }

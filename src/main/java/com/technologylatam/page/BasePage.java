@@ -12,8 +12,8 @@ import java.util.List;
 
 public abstract class BasePage {
 
-    protected WebDriver driver;
-    protected WebDriverWait wait;
+    protected final WebDriver driver;
+    protected final WebDriverWait wait;
 
     protected BasePage(WebDriver driver){
         this.driver = driver;
@@ -24,18 +24,6 @@ public abstract class BasePage {
 
     protected void goTo(){
         driver.get(ConfigManager.getBaseUrl());
-    }
-
-    protected void back(){
-        driver.navigate().back();
-    }
-
-    protected void forward(){
-        driver.navigate().forward();
-    }
-
-    protected void refresh(){
-        driver.navigate().refresh();
     }
 
     protected WebElement find(By locator){
