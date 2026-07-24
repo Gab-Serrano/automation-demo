@@ -40,4 +40,24 @@ public final class ConfigReader {
         return prop.getProperty(ConfigParams.BROWSER);
     }
 
+    public static String getBaseUrl(){
+        return prop.getProperty(ConfigParams.BASE_URL);
+    }
+
+    public static String getImplicitWait(){
+        return prop.getProperty(ConfigParams.IMPLICIT_WAIT);
+    }
+
+    public static String getExplicitWait(){
+        return prop.getProperty(ConfigParams.EXPLICIT_WAIT);
+    }
+
+    public static Boolean isHeadless(){
+        return Boolean.valueOf(prop.getProperty(ConfigParams.HEADLESS));
+    }
+
+    public static String getProperty(String property){
+        return prop.getProperty(property, null);
+    }
+
 }

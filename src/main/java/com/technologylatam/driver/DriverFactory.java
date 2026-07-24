@@ -1,0 +1,37 @@
+package com.technologylatam.driver;
+
+import com.technologylatam.config.ConfigReader;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+
+public class DriverFactory {
+
+    public static WebDriver getDriver (){
+
+        String browser = ConfigReader.getBrowser().toUpperCase();
+
+        switch (browser){
+            case "CHROME" -> {
+                String headless = ConfigReader.isHeadless() ? "--headless=new" : "--headless=false";
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments(headless);
+
+                return new ChromeDriver(options);
+            }
+            case "FIREFOX" -> {
+                String headless = ConfigReader.isHeadless() ? "-headless" : "";
+                FirefoxOptions options = new FirefoxOptions();
+                options.addArguments(headless);
+
+                return new FirefoxDriver(options);
+            }
+            default -> {
+                return new ChromeDriver();
+            }
+        }
+    }
+
+}
