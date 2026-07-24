@@ -15,7 +15,6 @@ public abstract class BaseTest {
         driver = DriverFactory.getDriver();
         driver.manage().window().maximize();
         js = (JavascriptExecutor) driver;
-
     }
 
     @AfterMethod

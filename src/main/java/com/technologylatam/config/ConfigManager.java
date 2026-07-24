@@ -58,11 +58,16 @@ public final class ConfigManager {
 
     public static Boolean isHeadless(){
         String headless = ConfigParams.HEADLESS;
-        return Boolean.valueOf(System.getProperty(headless, prop.getProperty(headless, "false")));
+        return Boolean.parseBoolean(System.getProperty(headless, prop.getProperty(headless, "false")));
     }
 
     public static String getProperty(String property){
         return System.getProperty(property, prop.getProperty(property, null));
+    }
+
+    public static boolean isIncognito() {
+        String incognito = ConfigParams.INCOGNITO;
+        return Boolean.parseBoolean(System.getProperty(incognito, prop.getProperty(incognito, incognito)));
     }
 
 }

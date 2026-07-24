@@ -51,11 +51,25 @@ public abstract class BasePage {
     }
 
     protected void write (By locator, String text){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
+        WebElement input = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        input.clear();
+        input.sendKeys(text);
     }
 
     protected String getText (By locator){
         return find(locator).getText();
+    }
+
+    protected boolean isVisible (By locator){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+    }
+
+    protected boolean isVisible (WebElement element){
+        return wait.until((ExpectedConditions.visibilityOf(element))).isDisplayed();
+    }
+
+    protected boolean areChildrenVisibles(By parentLocator, By childrenLocator){
+        return !wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(parentLocator, childrenLocator)).isEmpty();
     }
 
 }

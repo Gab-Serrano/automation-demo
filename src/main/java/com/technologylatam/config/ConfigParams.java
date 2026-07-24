@@ -6,4 +6,6 @@ public class ConfigParams {
     public static final String IMPLICIT_WAIT = "implicit.wait";
     public static final String EXPLICIT_WAIT = "explicit.wait";
     public static final String HEADLESS = "headless";
+    public static final String INCOGNITO = "incognito";
+    public static final String DATAFOLDER = "datafolder";
 }

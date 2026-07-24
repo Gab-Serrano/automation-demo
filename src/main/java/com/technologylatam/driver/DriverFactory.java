@@ -20,6 +20,10 @@ public class DriverFactory {
                 if(ConfigManager.isHeadless()){
                     options.addArguments("--headless=new");
                 }
+                if (ConfigManager.isIncognito()){
+
+                    options.addArguments("--incognito");
+                }
 
                 return new ChromeDriver(options);
             }
