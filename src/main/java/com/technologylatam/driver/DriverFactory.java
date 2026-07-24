@@ -15,16 +15,19 @@ public class DriverFactory {
 
         switch (browser){
             case "CHROME" -> {
-                String headless = ConfigReader.isHeadless() ? "--headless=new" : "--headless=false";
                 ChromeOptions options = new ChromeOptions();
-                options.addArguments(headless);
+
+                if(ConfigReader.isHeadless()){
+                    options.addArguments("--headless=new");
+                }
 
                 return new ChromeDriver(options);
             }
             case "FIREFOX" -> {
-                String headless = ConfigReader.isHeadless() ? "-headless" : "";
                 FirefoxOptions options = new FirefoxOptions();
-                options.addArguments(headless);
+                if (ConfigReader.isHeadless()) {
+                    options.addArguments("-headless");
+                }
 
                 return new FirefoxDriver(options);
             }
