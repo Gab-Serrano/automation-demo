@@ -21,7 +21,6 @@ public class CartPageTest extends BaseTest {
         HomePage home = new HomePage(driver);
         CartPage cart = new CartPage(driver);
 
-        //Login
             login.login(cartCheckout.getUser());
             assertTrue(home.isHeaderVisible());
 
