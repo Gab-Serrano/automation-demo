@@ -46,11 +46,6 @@ public final class ConfigManager {
         return System.getProperty(baseUrl, prop.getProperty(baseUrl));
     }
 
-    public static String getImplicitWait(){
-        String implicitWait = ConfigParams.IMPLICIT_WAIT;
-        return System.getProperty(implicitWait, prop.getProperty(implicitWait));
-    }
-
     public static String getExplicitWait(){
         String explicitWait = ConfigParams.EXPLICIT_WAIT;
         return System.getProperty(explicitWait, prop.getProperty(explicitWait));

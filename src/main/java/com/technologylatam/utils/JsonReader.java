@@ -1,15 +1,11 @@
 package com.technologylatam.utils;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.technologylatam.config.ConfigManager;
 import com.technologylatam.config.ConfigParams;
-import com.technologylatam.model.User;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 public final class JsonReader {
 

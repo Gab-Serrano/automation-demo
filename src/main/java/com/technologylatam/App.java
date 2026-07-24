@@ -6,24 +6,19 @@ import com.technologylatam.page.CartPage;
 import com.technologylatam.page.CheckoutPage;
 import com.technologylatam.page.HomePage;
 import com.technologylatam.page.LoginPage;
-import com.technologylatam.utils.JsonReader;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 /**
  * Hello world!
  *
  */
+@Slf4j
 public class App 
 {
-    private static final Logger log = LoggerFactory.getLogger(App.class);
 
-    public static void main(String[] args ) throws InterruptedException {
+    public static void main(String[] args ) {
 
-        /*
         WebDriver driver = DriverFactory.getDriver();
 
         LoginPage login = new LoginPage(driver);
@@ -49,12 +44,7 @@ public class App
         checkoutPage.finishCheckout();
         log.info("check: {}", checkoutPage.getSuccessMessage());
 
-
-        Thread.sleep(3000);
-
         driver.quit();
-
-        */
 
     }
 }
