@@ -47,11 +47,11 @@ public abstract class BasePage {
     }
 
     protected void click(By locator){
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
-    protected void write (By locator){
-        wait.until(ExpectedConditions.elementToBeSelected(locator));
+    protected void write (By locator, String text){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).sendKeys(text);
     }
 
     protected String getText (By locator){
